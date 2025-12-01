@@ -1,0 +1,27 @@
+[
+  {
+    "name": "categorization",
+    "description": "Categorizes emails into predefined categories",
+    "content": "Categorize the following email into ONE of these categories: Important, Newsletter, Spam, To-Do, Social, Notification.\n\nCategories explained:\n- Important: Urgent matters, critical decisions, executive communications\n- Newsletter: Marketing emails, subscriptions, periodic updates\n- Spam: Promotional content, unsolicited offers, suspicious emails\n- To-Do: Action items, tasks requiring user action, deadlines\n- Social: Team events, informal communications, personal messages\n- Notification: System alerts, automated messages, confirmations\n\nRespond with ONLY the category name, nothing else."
+  },
+  {
+    "name": "action_items",
+    "description": "Extracts action items and tasks from emails",
+    "content": "Extract all action items, tasks, and deadlines from the following email.\n\nFor each action item, identify:\n1. The specific task to be done\n2. Any mentioned deadline or timeframe\n3. Priority level (high/medium/low) based on urgency\n4. Who needs to complete it (if mentioned)\n\nRespond in JSON format:\n{\n  \"has_action_items\": true/false,\n  \"items\": [\n    {\n      \"task\": \"description of task\",\n      \"deadline\": \"date or timeframe\",\n      \"priority\": \"high/medium/low\",\n      \"assignee\": \"person or 'you' if it's for the recipient\"\n    }\n  ]\n}\n\nIf there are no action items, return: {\"has_action_items\": false, \"items\": []}"
+  },
+  {
+    "name": "auto_reply",
+    "description": "Generates draft replies to emails",
+    "content": "Generate a professional and appropriate email reply based on the content and context of the original email.\n\nGuidelines:\n1. Match the tone of the original email (formal/casual)\n2. Address all questions or requests mentioned\n3. Be concise but complete\n4. Include appropriate greetings and closings\n5. If it's a meeting request, acknowledge and either accept/decline/ask for more details\n6. If it's a task assignment, confirm understanding and provide estimated timeline\n7. If it's informational, acknowledge receipt and thank the sender\n\nFor meeting requests without agenda, politely ask for one.\nFor unclear requests, ask clarifying questions.\nFor urgent matters, acknowledge the urgency and provide immediate next steps.\n\nYour reply should sound natural and professional."
+  },
+  {
+    "name": "summarization",
+    "description": "Summarizes email content",
+    "content": "Provide a concise summary of the email in 2-3 sentences.\n\nInclude:\n- Main purpose of the email\n- Key points or requests\n- Any deadlines or important dates\n- Action required (if any)\n\nBe clear and direct. Avoid unnecessary details."
+  },
+  {
+    "name": "sentiment_analysis",
+    "description": "Analyzes the sentiment and tone of emails",
+    "content": "Analyze the sentiment and tone of the following email.\n\nProvide analysis in JSON format:\n{\n  \"sentiment\": \"positive/neutral/negative\",\n  \"tone\": \"formal/casual/urgent/friendly/aggressive\",\n  \"urgency_level\": \"high/medium/low\",\n  \"requires_immediate_attention\": true/false,\n  \"brief_explanation\": \"1-2 sentence explanation\"\n}"
+  }
+]
